@@ -27,13 +27,33 @@ Unlike read-only alternatives, it supports the full lifecycle: searching, creati
 | `delete_item` | Delete an item by UUID |
 | `add_attachment` | Upload a photo/document from a local file; `primary=true` makes a photo the item's main image |
 
-## Build
+## Installation
+
+**Linux / macOS — one-liner:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/nikitulko-wq/homebox-mcp/main/install.sh | sh
+```
+
+The script downloads the latest release binary and installs it to `/usr/local/bin` (or `~/.local/bin` if not writable). Options:
+
+```bash
+# pin a specific version
+curl -fsSL https://raw.githubusercontent.com/nikitulko-wq/homebox-mcp/main/install.sh | VERSION=v1.0.0 sh
+
+# custom install directory
+curl -fsSL https://raw.githubusercontent.com/nikitulko-wq/homebox-mcp/main/install.sh | INSTALL_DIR=~/bin sh
+```
+
+**Windows / any OS — manual:** download a prebuilt archive from [Releases](https://github.com/nikitulko-wq/homebox-mcp/releases) (Linux, macOS, Windows; amd64 and arm64), extract it and put the binary on your `PATH`.
+
+## Build from source
 
 ```bash
 go build -o homebox-mcp .
 ```
 
-Requires Go 1.23+.
+Requires Go 1.25+.
 
 ## Configuration
 
@@ -119,13 +139,33 @@ MCP-сервер для [Homebox](https://homebox.dev) (v0.26+, API `/entities` 
 | `delete_item` | Удаление айтема по UUID |
 | `add_attachment` | Загрузка фото/документа из локального файла; `primary=true` делает фото главным |
 
-### Сборка
+### Установка
+
+**Linux / macOS — одной командой:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/nikitulko-wq/homebox-mcp/main/install.sh | sh
+```
+
+Скрипт скачивает бинарник последнего релиза и устанавливает в `/usr/local/bin` (или `~/.local/bin`, если нет прав записи). Опции:
+
+```bash
+# установить конкретную версию
+curl -fsSL https://raw.githubusercontent.com/nikitulko-wq/homebox-mcp/main/install.sh | VERSION=v1.0.0 sh
+
+# своя директория установки
+curl -fsSL https://raw.githubusercontent.com/nikitulko-wq/homebox-mcp/main/install.sh | INSTALL_DIR=~/bin sh
+```
+
+**Windows / любая ОС — вручную:** скачайте архив с бинарником из [Releases](https://github.com/nikitulko-wq/homebox-mcp/releases) (Linux, macOS, Windows; amd64 и arm64), распакуйте и положите бинарник в `PATH`.
+
+### Сборка из исходников
 
 ```bash
 go build -o homebox-mcp .
 ```
 
-Требуется Go 1.23+.
+Требуется Go 1.25+.
 
 ### Конфигурация
 

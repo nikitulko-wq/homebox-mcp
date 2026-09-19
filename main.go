@@ -22,7 +22,8 @@ import (
 	"github.com/litvinovns/homebox-mcp/internal/tools"
 )
 
-const version = "1.0.0"
+// version is overridden at release build time via -ldflags "-X main.version=...".
+var version = "1.0.0"
 
 func main() {
 	// stdout is reserved for the MCP stdio protocol — log only to stderr.
