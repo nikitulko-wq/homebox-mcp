@@ -1,5 +1,6 @@
 # Compiled binary
 /homebox-mcp
+*.exe
 
 # Test artifacts
 /tmp/
