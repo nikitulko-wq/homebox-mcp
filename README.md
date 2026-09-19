@@ -4,6 +4,12 @@ An MCP server for [Homebox](https://homebox.dev) (v0.26+, `/entities` + `/tags` 
 
 Unlike read-only alternatives, it supports the full lifecycle: searching, creating, editing and deleting items, plus uploading photos and files.
 
+## In action
+
+![homebox-mcp in LM Studio: the model answers "how many usb cables i have?" by calling search_items through the homebox MCP server](assets/lm-studio-example.png)
+
+*Asking "how many usb cables do I have?" in [LM Studio](https://lmstudio.ai) — the model calls `search_items` through the `homebox` MCP server and answers straight from the Homebox inventory.*
+
 ## Features (11 tools)
 
 **Read:**
@@ -123,6 +129,12 @@ MIT
 MCP-сервер для [Homebox](https://homebox.dev) (v0.26+, API `/entities` + `/tags`), написанный на Go с использованием официального [MCP Go SDK](https://github.com/modelcontextprotocol/go-sdk). Транспорт — stdio.
 
 В отличие от read-only аналогов, поддерживает полный цикл: поиск, создание, редактирование, удаление айтемов и загрузку изображений/файлов.
+
+### В действии
+
+![homebox-mcp в LM Studio: модель отвечает на вопрос "how many usb cables i have?", вызывая search_items через MCP-сервер homebox](assets/lm-studio-example.png)
+
+*Вопрос «сколько у меня USB-кабелей?» в [LM Studio](https://lmstudio.ai) — модель вызывает `search_items` через MCP-сервер `homebox` и отвечает по данным инвентаря Homebox.*
 
 ### Возможности (11 инструментов)
 
