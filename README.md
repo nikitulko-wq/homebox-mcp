@@ -69,23 +69,29 @@ The server logs in via `POST /api/v1/users/login` and keeps the Bearer token in 
 
 > Note: Homebox **v0.26.0 or newer** is required. In v0.26 the API changed from `/items`, `/locations`, `/labels` to the unified `/entities`, `/tags`, `/entity-types` — this server uses only the new API. You can check your instance version at `GET <HOMEBOX_URL>/api/v1/status`.
 
-## Connecting to Claude Code
+## Agent Installation
 
-```bash
-claude mcp add homebox \
-  --env HOMEBOX_URL=https://homebox.example.com \
-  --env HOMEBOX_EMAIL=you@example.com \
-  --env HOMEBOX_PASSWORD=secret \
-  -- /path/to/homebox-mcp
+Copy-paste one of these commands directly into your MCP-enabled agent (pi, Codex, Cursor, etc.) and it will install everything automatically.
+
+### Quick install
+
+Replace `<URL>`, `<EMAIL>` and `<PASSWORD>` with your Homebox credentials first:
+
+```
+Install the homebox-mcp server as my MCP server named "homebox". Download the latest release from https://github.com/nikitulko-wq/homebox-mcp and place it on PATH. Configure it with these environment variables: HOMEBOX_URL=<URL>, HOMEBOX_EMAIL=<EMAIL>, HOMEBOX_PASSWORD=<PASSWORD>. Use stdio transport.
 ```
 
-For Claude Desktop, add to `claude_desktop_config.json`:
+The agent will download & install the binary and register it as an MCP server — all in one step.
+
+### Manual JSON (Claude Desktop / Cline / Roo Code)
+
+Add this to your `claude_desktop_config.json` or equivalent:
 
 ```json
 {
   "mcpServers": {
     "homebox": {
-      "command": "/path/to/homebox-mcp",
+      "command": "/usr/local/bin/homebox-mcp",
       "env": {
         "HOMEBOX_URL": "https://homebox.example.com",
         "HOMEBOX_EMAIL": "you@example.com",
@@ -95,6 +101,8 @@ For Claude Desktop, add to `claude_desktop_config.json`:
   }
 }
 ```
+
+> Use `/usr/local/bin/homebox-mcp` if you ran the install script, or wherever `which homebox-mcp` points.
 
 ## Example prompts
 
@@ -181,23 +189,29 @@ go build -o homebox-mcp .
 
 > Примечание: нужен Homebox **v0.26.0 или новее**. В v0.26 API сменился с `/items`, `/locations`, `/labels` на единые `/entities`, `/tags`, `/entity-types` — этот сервер использует только новое API. Версию вашего инстанса можно узнать на `GET <HOMEBOX_URL>/api/v1/status`.
 
-### Подключение к Claude Code
+### Установка для агентов
 
-```bash
-claude mcp add homebox \
-  --env HOMEBOX_URL=https://homebox.example.com \
-  --env HOMEBOX_EMAIL=you@example.com \
-  --env HOMEBOX_PASSWORD=secret \
-  -- /path/to/homebox-mcp
+Скопируйте одну из этих команд прямо в чат с вашим MCP-агентом (pi, Codex, Cursor и т.д.) — всё установится само.
+
+#### Быстрая установка
+
+Замените `<URL>`, `<EMAIL>` и `<PASSWORD>` на свои учётные данные Homebox:
+
+```
+Установи MCP-сервер homebox-mcp как мой сервер с именем "homebox". Скачай последний релиз с https://github.com/nikitulko-wq/homebox-mcp и положи его на PATH. Настрой через переменные окружения: HOMEBOX_URL=<URL>, HOMEBOX_EMAIL=<EMAIL>, HOMEBOX_PASSWORD=<PASSWORD>. Используй stdio транспорт.
 ```
 
-Для Claude Desktop добавьте в `claude_desktop_config.json`:
+Агент сам скачает, установит бинарник и зарегистрирует сервер — одним шагом.
+
+#### Ручной JSON (Claude Desktop / Cline / Roo Code)
+
+Добавьте в `claude_desktop_config.json` или аналогичный конфиг:
 
 ```json
 {
   "mcpServers": {
     "homebox": {
-      "command": "/path/to/homebox-mcp",
+      "command": "/usr/local/bin/homebox-mcp",
       "env": {
         "HOMEBOX_URL": "https://homebox.example.com",
         "HOMEBOX_EMAIL": "you@example.com",
@@ -207,6 +221,8 @@ claude mcp add homebox \
   }
 }
 ```
+
+> Используйте `/usr/local/bin/homebox-mcp`, если установили скриптом, или подставьте результат `which homebox-mcp`.
 
 ### Примеры запросов
 
